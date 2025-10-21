@@ -12,10 +12,10 @@ A simple code example for injecting a Dynamic Link Library (DLL) into a target p
 ## Usage
 Run the program using the following command:
 ```bash
-./RemoteThread <pid> <dllpath>
+.\RemoteThread.exe <pid> <dllpath>
 ```
 
 # Example
 ```bash
-./RemoteThread 1234 C:\path\to\your.dll
+.\RemoteThread.exe 1234 C:\path\to\your.dll
 ```
