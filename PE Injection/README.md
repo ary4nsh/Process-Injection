@@ -1,6 +1,6 @@
 # PE-Relocate Self-Injection
 
-A minimal example that duplicates its own PE image into another process (here: Notepad) and starts a thread there.
+A simple example that duplicates its own PE image into another process (here: Notepad) and starts a thread there.
 No external DLL is used; the injector carries its payload in its own .reloc section and fixes all addresses at runtime.
 
 ## How it works (step-by-step)
