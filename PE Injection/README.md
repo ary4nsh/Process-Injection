@@ -1,9 +1,9 @@
-#PE-Relocate Self-Injection
+# PE-Relocate Self-Injection
 
 A minimal example that duplicates its own PE image into another process (here: Notepad) and starts a thread there.
 No external DLL is used; the injector carries its payload in its own .reloc section and fixes all addresses at runtime.
 
-##How it works (step-by-step)
+## How it works (step-by-step)
 
 1. Enable SeDebugPrivilege so we can open any process.
 2. Decide which Notepad to start (32-bit or 64-bit) depending on the OS.
@@ -15,7 +15,7 @@ No external DLL is used; the injector carries its payload in its own .reloc sect
 8. Payload simply shows a message-box (“Injection Successful”) and exits.
 9. Clean up handles and free the temporary kernel32 mapping.
 
-##Usage
+## Usage
 
 Just run the executable with Administrator rights (otherwise SeDebugPrivilege will fail):
 ```
