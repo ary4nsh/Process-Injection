@@ -19,7 +19,7 @@ No external DLL is used; the injector carries its payload in its own .reloc sect
 
 Just run the executable with Administrator rights (otherwise SeDebugPrivilege will fail):
 ```
-C:\> injector.exe
+C:\> PE Injection.exe
 ```
 The program will:
 - spawn the correct Notepad (32/64-bit),
