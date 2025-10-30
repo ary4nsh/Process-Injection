@@ -20,12 +20,12 @@ The included shell-code is crafted from message.cpp and it's assembly code is av
 .\ListPlanting.exe
 ```
 
-The program spawns `regedit.exe` automatically, injects the payload, and shows the message box. 
+The program is supposed to spawn `regedit.exe`, inject the payload, and display a message box; however, it does not show the message box in newer versions of Windows 10 and Windows 11.
 
 ## Limitations / Detection
 
 * Works only against processes that contain a **SysListView32** (RegEdit, TaskMgr, ProcExp, MMC snap-ins, …).  
-* The List-View must own **≥1 item** or the sort callback is never executed.  
+* The List-View must own more than one item or the sort callback is never executed.  
 * Modern EDR can still flag the **RWX allocation** + **cross-process write** + **window message flood**.  
 * The technique is **arch-specific** – the published shell-code is 64-bit.  
 * **LVM_SORTITEMS** was abused in real malware (e.g. **Carberp**, **Turla**) – signatures exist.
