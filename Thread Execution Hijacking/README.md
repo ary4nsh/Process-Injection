@@ -14,10 +14,10 @@ A simple code example for injecting a Dynamic Link Library (DLL) into a target p
 
 Run the program using the following command:
 ```
-.\ThreadExecutionHijacking.exe <pid> <dllpath>
+.\ThreadHijacking.exe <pid> <dllpath>
 ```
 
 ## Example
 ```
-.\ThreadExecutionHijacking.exe 1234 C:\path\to\your.dll
+.\ThreadHijacking.exe 1234 C:\path\to\your.dll
 ```
