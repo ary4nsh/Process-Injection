@@ -1,3 +1,3 @@
 # Process Injection
-In this repository, you will find simple code examples demonstrating the Process Injection technique, which is used for privilege escalation and defense evasion.
+In this repository, you will find simple code examples demonstrating the [Process Injection technique](https://attack.mitre.org/techniques/T1055/), which is used for privilege escalation and defense evasion.
 Note: This repository will be updated...
