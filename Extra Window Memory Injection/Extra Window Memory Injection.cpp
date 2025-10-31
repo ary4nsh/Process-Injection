@@ -267,12 +267,15 @@ int main(int argc, const char* argv[]) {
         MEM_DECOMMIT | MEM_RELEASE   // dwFreeType: Decommit the memory and release the allocation
     );
 
-    MessageBox(nullptr,              // Owner window handle; nullptr means no owner
-        L"Injected!",                // Message to display in the message box
-        L"Extra Window Memory",      // Title of the message box
-        MB_OK                        // Type of message box (OK button)
-    );
+    // Display a message box in the current process indicating the injection was successful
+    MessageBoxW(
+        NULL,                            // hWnd: No owner window specified
+        L"Injected!",                    // lpText: Content of the message box
+        L"ListPlanting",                 // lpCaption: Title of the message box
+        MB_OK | MB_ICONINFORMATION       // uType: Button and icon type (OK button with information icon)
+    );  
 
     CloseHandle(hp);                 // Close the handle to the target process, freeing resources
     return 0;
+
 }
