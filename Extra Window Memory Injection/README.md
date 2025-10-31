@@ -2,7 +2,7 @@
 A minimal proof-of-concept that hijacks the tray window’s extra window memory (EWM) to execute arbitrary code inside explorer.exe without creating a remote thread or dropping a DLL.
 The injector overwrites the CTray virtual-table pointer stored in the Shell_TrayWnd extra bytes, points it to a fake vtable that lives in newly-allocated memory, and sets the WndProc entry to the supplied payload.
 A single WM_CLOSE message sent to the tray window is enough to make explorer call the fake WndProc and run the shell-code in its own context.
-When the payload returns the original pointer is restored and the temporary allocations are released, leaving explorer in its original state.
+When the payload returns the original pointer is restored and the temporary allocations are released, leaving explorer in its original state. The payload.bin here is compiled from message.cpp source code.
 
 ## How it works (step-by-step)
 1. Parse command line: target PID (must be explorer.exe) and raw shell-code file on disk.
@@ -23,17 +23,18 @@ When the payload returns the original pointer is restored and the temporary allo
 ## Usage
 Run the executable from an elevated prompt (otherwise OpenProcess on explorer fails):
 ```
-C:> EwmInject.exe <explorer PID>
+C:> EwmInject.exe <PID> <payload path>
 ```
 
 ## Example:
 ```
-C:> EwmInject.exe 1336 calc.bin
+C:> EwmInject.exe 1336 payload.bin
 ```
 
 The program will:
-allocate executable memory inside explorer,
-copy the raw shell-code,
-redirect the CTray virtual table,
-post one message to make explorer execute the payload,
-restore the original pointer and vanish, leaving explorer untouched.
+- allocate executable memory inside explorer,
+- copy the raw shell-code,
+- redirect the CTray virtual table,
+- post one message to make explorer execute the payload,
+- pop a message box “Injected!” from the injector itself,
+- restore the original pointer and vanish, leaving explorer untouched.
