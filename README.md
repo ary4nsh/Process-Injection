@@ -18,5 +18,3 @@ Sub-techniques:
 - Ptrace System Calls
 - Proc Memory
 - VDSO Hijacking
-
-Note: This repository will be updated...
