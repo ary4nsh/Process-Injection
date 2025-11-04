@@ -180,7 +180,7 @@ int check_vdso_shellcode()
 int main(int argc, char *argv[])
 {
     if (argc != 2) {
-        printf("Usage: VDSOInject <PID>\n");
+        printf("Usage: VDSOHijack <PID>\n");
         return 1;
     }
 
